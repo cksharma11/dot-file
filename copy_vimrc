@@ -16,23 +16,26 @@ map <C-y> "*y"
 set backspace=indent,eol,start
 set laststatus=2
 
-call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim'
-call plug#end()
-
-imap fu<TAB> const function = function()
-imap co<TAB> const 
-imap { {}<left>
-imap [ []<left>
-imap ( ()<left>
+"call plug#begin('~/.vim/plugged')
+"Plug 'itchyny/lightline.vim'
+"call plug#end()
+imap fun<TAB> const function = function()<left><esc>^wcw
+imap des<TAB> describe('functionName', function(){<cr>it('should ', function(){<cr><cr>});<cr>});<ESC>4k10==ff
+imap it<TAB> it('should ', function(){<cr>});<ESC>ko
 
 "vundle
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
 set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 Plugin 'Yggdroot/indentLine'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'pangloss/vim-javascript'"vundle
+Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()            " required
+
 filetype plugin indent on    " required
-"Plugin 'pangloss/vim-javascript'"vundle
